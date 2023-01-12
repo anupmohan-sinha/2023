@@ -1,0 +1,17 @@
+import { Component, VERSION } from '@angular/core';
+
+@Component({
+  selector: 'my-app',
+  template: `
+  <ng-container [ngTemplateOutlet]="nameTemplat" [ngTemplateOutletContext]="{ fullName: getName() }">
+    <ng-template #nameTemplat let-resultData="fullName">
+      <div>Hello : {{resultData.lastName}}</div>
+    </ng-template>
+  </ng-container>
+  `
+})
+export class AppComponent {
+  getName(): any {
+    return {'firstName': 'Anup', 'lastName': 'Sinha'};
+  }
+}
