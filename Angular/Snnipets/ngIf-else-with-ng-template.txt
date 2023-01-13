@@ -1,0 +1,6 @@
+        <ng-template #messages>
+          <div class="messges-container">
+            <span *ngIf="absence.type; else shiftMsg">Person is absent: {{absence.type}}</span>
+            <ng-template #shiftMsg><span *ngFor="let message of staffShift.value.get(weekDay.key).messages">{{message}}</span></ng-template>
+          </div>
+        </ng-template>
