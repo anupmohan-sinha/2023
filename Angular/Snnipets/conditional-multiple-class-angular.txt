@@ -1,0 +1,1 @@
+[ngClass]="{'Requested':'class-name', 'Approved':'approved-text', 'Denied':'denied-text'}[absence.status]"
