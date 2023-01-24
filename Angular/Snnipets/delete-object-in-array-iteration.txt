@@ -1,0 +1,19 @@
+ objsNeedToRemoveFromMainArray = [{name: 'Anup', point: '5'}, {name: 'Mohan', point: '7'}, {name: 'Sinha',point: '9'}];
+ 
+ mainArray = [{name: 'Mohan', point: '16'}, {name: 'Anup', point: '5'}, {name: 'Nirmala', point: '12'}, {name: 'Mohan', point: '7'}, {name: 'Sinha',point: '9'}];
+ 
+ // result to be returned
+ // [{name: 'Mohan', point: '16'}, {name: 'Nirmala', point: '12'}];
+ 
+ 
+ objsNeedToRemoveFromMainArray.forEach(x => {
+      mainArray.every((y,i) => {
+        if(y.name === x.name && y.point === ra.point) {
+          mainArray.splice(i,1); // delete a single item from mainArray @ index i where condition is satisfied
+          return false; // require to exit inner loop i.e 'every' loop when condition is met
+        }
+        return true; // require to continue the loop
+      });
+    });
+    console.log('mainArray ',mainArray);
+return mainArray;
