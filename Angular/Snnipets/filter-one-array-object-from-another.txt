@@ -1,0 +1,18 @@
+ //I want to compare two array of objects then find out missing objects in the item array from main array
+ 
+ 
+ arr = [{name: 'Anup', point: '5'}, {name: 'Mohan', point: '7'}, {name: 'Sinha',point: '9'}];
+ 
+ mainArr = [{name: 'Mohan', point: '16'}, {name: 'Anup', point: '5'}, {name: 'Nirmala', point: '12'}, {name: 'Mohan', point: '7'}, {name: 'Sinha',point: '9'}];
+ 
+ mainArr.forEach(main => {
+     if(!arr.some(a => main.point === a.point)){
+     console.log(main," is not present in the array!");
+    }
+ })
+ 
+ 
+ //output
+ 
+ { name: 'Mohan', point: '16' }  is not present in the array!
+ { name: 'Nirmala', point: '12' }  is not present in the array!
