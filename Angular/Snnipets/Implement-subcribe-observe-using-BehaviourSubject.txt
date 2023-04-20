@@ -1,0 +1,36 @@
+ 
+ //Inside service
+ 
+ private lightColor: DeskStatus = {
+    available: '#97dbc1',
+    booked: '#ea9b9f',
+    blocked: '#d1d6d9',
+    selected: '#36b9ea',
+  };
+  private brightColor: DeskStatus = {
+    available: '#228B22',
+    booked: '#8B0000',
+    blocked: '#97A2A2',
+    selected: '#000080',
+  };
+  private deskStatusSource$ = new BehaviorSubject<DeskStatus>(this.lightColor);
+  deskStatus = this.deskStatusSource$.asObservable();
+  
+  improveColorAccessibility(isBrightColor: boolean) {
+    if (isBrightColor) {
+      this.deskStatusSource$.next(this.brightColor);
+    } else {
+      this.deskStatusSource$.next(this.lightColor);
+    }
+  }
+  
+  
+  
+  // subscribe to the event
+  deskStatus!: DeskStatus;
+  
+    ngOnInit(): void {
+    this.globalStateService.deskStatus.subscribe(value => {
+      this.deskStatus = value;
+    });
+  }
